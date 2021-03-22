@@ -23,12 +23,13 @@
         android:id="@+id/analystBottomNav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/navi1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:rbb_activeItemType="text"
+        app:rbb_backgroundColor="#C3C3C3"
         app:rbb_tabs="@xml/analyst_tabs" />
 
 

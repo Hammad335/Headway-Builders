@@ -2,20 +2,20 @@
 <tabs>
 
     <tab
-        drawable="@drawable/analyst_home"
-        text="@string/home"/>
+        drawable="@drawable/analyst_home2"
+        text="@string/HOME"/>
 
     <tab
-        drawable="@drawable/analyst_add_building"
-        text="@string/add"/>
+        drawable="@drawable/analyst_add"
+        text="@string/ADD"/>
 
     <tab
-        drawable="@drawable/analytst_edit_building"
-        text="@string/edit"/>
+        drawable="@drawable/icon"
+        text="@string/EDIT"/>
 
     <tab
-        drawable="@drawable/analyst_profile"
-        text="@string/profile"/>
+        drawable="@drawable/analyst_profile1"
+        text="@string/PROFILE"/>
 
 
 </tabs>
