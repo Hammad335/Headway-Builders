@@ -3,7 +3,7 @@
 
 
     <!--    // analyst bottom nav tabs-->
-    <string name="HOME">HOME</string>
+    <string name="home">HOME</string>
     <string name="EDIT">EDIT</string>
     <string name="ADD">ADD</string>
     <string name="PROFILE">PROFILE</string>
