@@ -10,7 +10,7 @@
         text="@string/ADD"/>
 
     <tab
-        drawable="@drawable/icon2"
+        drawable="@drawable/icon3"
         text="@string/EDIT"/>
 
     <tab
