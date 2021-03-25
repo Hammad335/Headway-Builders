@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/analystParentCardView"
-    android:layout_width="wrap_content"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:layout_marginTop="8dp"
@@ -12,12 +12,10 @@
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:alpha="0.8"
         android:padding="5dp">
-
         <RelativeLayout
             android:id="@+id/collasedRelLayout"
             android:layout_width="296dp"
@@ -28,28 +26,22 @@
                 android:id="@+id/analystBuildingImageView"
                 android:layout_width="match_parent"
                 android:layout_height="171dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="2dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="0dp"
                 android:src="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/analystBuildingName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/analystBuildingImageView"
                 android:layout_marginTop="24dp"
-                android:capitalize="characters"
                 android:fontFamily="@font/monoton"
                 android:gravity="start"
                 android:text="BUILDING NAME"
-                android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="#A6FFFFFF"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -60,7 +52,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="42dp"
                 android:layout_marginEnd="0dp"
-                android:contentDescription="TODO"
                 android:src="@drawable/ic_down_arrow" />
 
         </RelativeLayout>
@@ -77,7 +68,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Short Desc: "
-                android:textSize="20sp" />
+                android:fontFamily="@font/monoton"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/buildingShortDesc"
@@ -85,7 +78,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtShortDec"
                 android:text="Building Desc: "
-                android:textSize="20sp"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="5dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
                 android:textStyle="italic" />
 
             <ImageView

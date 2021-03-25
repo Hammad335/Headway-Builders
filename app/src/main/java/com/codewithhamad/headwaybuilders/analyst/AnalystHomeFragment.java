@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,18 +32,19 @@ public class AnalystHomeFragment extends Fragment {
         ArrayList<BuildingModel> buildings= new ArrayList<>();
 
         buildings.add(new BuildingModel(R.drawable.one, 123,
-                "Hotel", "123sqFt", 12, "321sqFt", "it is BBQ Hotel"));
+                "Hotel", 1800, 12, 200, "It is a BBQ Hotel"));
 
         buildings.add(new BuildingModel(R.drawable.two, 123,
-                "Hospital", "123sqFt", 12, "321sqFt", "A Semi-govt hospital"));
+                "Hospital", 1200, 10, 100, "A Semi-govt hospital"));
 
         buildings.add(new BuildingModel(R.drawable.three, 123,
-                "School", "123sqFt", 12, "321sqFt", "Provides Quality Education"));
+                "School", 4000, 8, 400, "Provides Quality Education"));
 
         buildings.add(new BuildingModel(R.drawable.four, 123,
-                "Showroom", "123sqFt", 12, "321sqFt", "A car showroom which provides best quality models"));
+                "Showroom", 2000, 14, 300, "A car showroom which provides best quality models"));
 
 
+        Log.d("image", "onCreateView: " + buildings.get(2).getBuildingImage());
 
         adapter= new BuildingAdapter(getContext(), buildings);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

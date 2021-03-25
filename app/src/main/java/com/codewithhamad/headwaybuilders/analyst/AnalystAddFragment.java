@@ -13,15 +13,12 @@ import com.codewithhamad.headwaybuilders.R;
 
 public class AnalystAddFragment extends Fragment {
 
-    RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_analyst_add, container, false);
-
-        recyclerView= view.findViewById(R.id.homeFragRecView);
 
 
         return view;

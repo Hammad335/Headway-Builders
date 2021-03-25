@@ -40,4 +40,11 @@ dependencies {
 
     // readableBottomBar
     implementation 'com.github.iammert:ReadableBottomBar:0.2'
+
+    // jdbc connection lib
+    implementation files('libs/ojdbc6.jar')
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
 }
