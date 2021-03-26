@@ -10,16 +10,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.databasehelper.DatabaseHelper;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AnalystHomeFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    BuildingAdapter adapter;
+    private RecyclerView recyclerView;
+    private BuildingAdapter adapter;
+    private DatabaseHelper databaseHelper;
+    private ArrayList<BuildingModel> buildings= new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,26 +33,23 @@ public class AnalystHomeFragment extends Fragment {
 
         recyclerView= view.findViewById(R.id.homeFragRecView);
 
-        ArrayList<BuildingModel> buildings= new ArrayList<>();
+        // retrieving data from database (buildings table)
+        try{
+            databaseHelper= new DatabaseHelper(getContext());
+            buildings= databaseHelper.getAllBuildingsFromDatabase();
+            if(buildings != null){
+                adapter= new BuildingAdapter(getContext(), buildings);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(adapter);
+            }
+        }
+        catch (Exception e){
+            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
-        buildings.add(new BuildingModel(R.drawable.one, 123,
-                "Hotel", 1800, 12, 200, "It is a BBQ Hotel"));
 
-        buildings.add(new BuildingModel(R.drawable.two, 123,
-                "Hospital", 1200, 10, 100, "A Semi-govt hospital"));
-
-        buildings.add(new BuildingModel(R.drawable.three, 123,
-                "School", 4000, 8, 400, "Provides Quality Education"));
-
-        buildings.add(new BuildingModel(R.drawable.four, 123,
-                "Showroom", 2000, 14, 300, "A car showroom which provides best quality models"));
-
-
-        Log.d("image", "onCreateView: " + buildings.get(2).getBuildingImage());
-
-        adapter= new BuildingAdapter(getContext(), buildings);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapter);
         return view;
     }
+
+
 }

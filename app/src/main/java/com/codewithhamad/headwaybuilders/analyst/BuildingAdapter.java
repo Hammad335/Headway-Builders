@@ -47,7 +47,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         BuildingModel buildingModel= buildings.get(position);
 
         // changing view values on runTime
-        holder.buildingImage.setImageResource(buildingModel.getBuildingImage());
+        holder.buildingImage.setImageBitmap(buildingModel.getBuildingImage());
         holder.buildingName.setText(buildingModel.getBuildingName());
         holder.buildingShortDesc.setText(buildingModel.getShortDetails());
 

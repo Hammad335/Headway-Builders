@@ -1,52 +1,41 @@
 package com.codewithhamad.headwaybuilders.analyst;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class BuildingModel implements Parcelable {
+public class BuildingModel {
 
-    private int buildingImage;
+    private Bitmap buildingImage;
+    private String buildingType;
     private int buildingId;
     private String buildingName;
     private int buildingAreaInSqFt;
     private int numbOfFlats;
+    private int numbOfFloors;
+    private int numbOfLifts;
     private int parkingAreaInSqFt;
     private String shortDetails;
+    private String buildingLocation;
     private boolean isExpanded;
 
-    public BuildingModel(int buildingImage, int buildingId, String buildingName, int buildingAreaInSqFt, int numbOfFlats, int parkingAreaInSqFt, String shortDetails) {
-        this.buildingImage= buildingImage;
-        this.buildingId= buildingId;
+    public BuildingModel(Bitmap buildingImage, String buildingType, int buildingId, String buildingName, int buildingAreaInSqFt,
+                         int numbOfFlats, int numbOfFloors, int numbOfLifts, int parkingAreaInSqFt, String shortDetails,
+                         String buildingLocation) {
+
+        this.buildingImage = buildingImage;
+        this.buildingType = buildingType;
+        this.buildingId = buildingId;
         this.buildingName = buildingName;
         this.buildingAreaInSqFt = buildingAreaInSqFt;
         this.numbOfFlats = numbOfFlats;
+        this.numbOfFloors = numbOfFloors;
+        this.numbOfLifts = numbOfLifts;
         this.parkingAreaInSqFt = parkingAreaInSqFt;
-        this.shortDetails= shortDetails;
-        isExpanded= false;
+        this.shortDetails = shortDetails;
+        this.buildingLocation = buildingLocation;
+        this.isExpanded = false;
     }
-
-    protected BuildingModel(Parcel in) {
-        buildingImage = in.readInt();
-        buildingId = in.readInt();
-        buildingName = in.readString();
-        buildingAreaInSqFt = in.readInt();
-        numbOfFlats = in.readInt();
-        parkingAreaInSqFt = in.readInt();
-        shortDetails = in.readString();
-        isExpanded = in.readByte() != 0;
-    }
-
-    public static final Creator<BuildingModel> CREATOR = new Creator<BuildingModel>() {
-        @Override
-        public BuildingModel createFromParcel(Parcel in) {
-            return new BuildingModel(in);
-        }
-
-        @Override
-        public BuildingModel[] newArray(int size) {
-            return new BuildingModel[size];
-        }
-    };
 
     public int getBuildingId() {
         return buildingId;
@@ -88,11 +77,11 @@ public class BuildingModel implements Parcelable {
         this.parkingAreaInSqFt = parkingAreaInSqFt;
     }
 
-    public int getBuildingImage() {
+    public Bitmap getBuildingImage() {
         return buildingImage;
     }
 
-    public void setBuildingImage(int buildingImage) {
+    public void setBuildingImage(Bitmap buildingImage) {
         this.buildingImage = buildingImage;
     }
 
@@ -112,20 +101,35 @@ public class BuildingModel implements Parcelable {
         isExpanded = expanded;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getBuildingType() {
+        return buildingType;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(buildingImage);
-        dest.writeInt(buildingId);
-        dest.writeString(buildingName);
-        dest.writeInt(buildingAreaInSqFt);
-        dest.writeInt(numbOfFlats);
-        dest.writeInt(parkingAreaInSqFt);
-        dest.writeString(shortDetails);
-        dest.writeByte((byte) (isExpanded ? 1 : 0));
+    public void setBuildingType(String buildingType) {
+        this.buildingType = buildingType;
+    }
+
+    public int getNumbOfFloors() {
+        return numbOfFloors;
+    }
+
+    public void setNumbOfFloors(int numbOfFloors) {
+        this.numbOfFloors = numbOfFloors;
+    }
+
+    public int getNumbOfLifts() {
+        return numbOfLifts;
+    }
+
+    public void setNumbOfLifts(int numbOfLifts) {
+        this.numbOfLifts = numbOfLifts;
+    }
+
+    public String getBuildingLocation() {
+        return buildingLocation;
+    }
+
+    public void setBuildingLocation(String buildingLocation) {
+        this.buildingLocation = buildingLocation;
     }
 }
