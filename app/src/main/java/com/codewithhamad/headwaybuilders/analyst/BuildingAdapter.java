@@ -2,7 +2,6 @@ package com.codewithhamad.headwaybuilders.analyst;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.TransitionManager;
 
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.codewithhamad.headwaybuilders.analyst;
+package com.codewithhamad.headwaybuilders.models;
 
 import android.graphics.Bitmap;
 import android.os.Parcel;

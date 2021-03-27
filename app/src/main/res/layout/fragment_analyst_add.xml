@@ -1,248 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".analyst.AnalystAddFragment">
+    tools:context=".analyst.analystaddfrag.AnalystAddFragment"
+    android:background="@drawable/gg"
+    android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/buildingDetailsInfoTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif"
-            android:text="Building Information"
-            android:textSize="36sp"
-            android:layout_centerHorizontal="true"
-            android:textStyle="bold"/>
-
-
-        <ImageView
-            android:id="@+id/buildingMannualImage"
-            android:layout_width="300dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="22dp"
-            android:src="@drawable/four"
-            android:layout_below="@+id/buildingDetailsInfoTxt"
-            android:layout_centerHorizontal="true"/>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/buildingMannualImage"
-            android:id="@+id/scrollView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Building Type :"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-                        <Spinner
-                            android:id="@+id/buildingTypeSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="100dp"
-                            android:entries="@array/spinner_items"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Building Id :"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-                        <EditText
-                            android:id="@+id/buildingId"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:ems="10"
-                            android:inputType="number"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Building Name :"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/buildingName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="textPersonName"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Building Area (sqft.) :"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/buildingArea"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Number of flats : (Optional)"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/numbOfFlats"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Number of floors : (Optional)"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/numbOfFloors"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Number of lifts : (Optional)"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/numbOfLifts"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Parking Area (sqft) :"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/parkingArea"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Location :"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/location"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="text"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Short Details : (Optional)"
-                            android:layout_marginStart="20dp"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="20dp"/>
-
-
-                        <EditText
-                            android:id="@+id/shortDetails"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="4"
-                            android:inputType="textLongMessage"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="20dp"/>
-
-
-                </LinearLayout>
-
-        </ScrollView>
-
-
-
-        <Button
-            android:id="@+id/addBtn"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/addFragTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Add Building"
-            android:layout_below="@+id/scrollView"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"/>
+            app:tabIndicatorFullWidth="true"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@android:color/transparent"
+            app:tabIndicatorGravity="center"
+            app:tabTextColor="#FF9800"
+            app:tabIndicatorHeight="35dp"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabRippleColor="#84E3F1"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/addFragViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
 
-</RelativeLayout>
+
+
+</LinearLayout>

@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.analyst.analystaddfrag.AnalystAddFragment;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 
 public class AnalystActivity extends AppCompatActivity {
@@ -33,18 +34,22 @@ public class AnalystActivity extends AppCompatActivity {
 				FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();
 				switch (i){
 					case 0:
+//						transaction.setCustomAnimations(R.anim.fadein,R.anim.sample_anim,R.anim.fadein,R.anim.sample_anim);
 						transaction.replace(R.id.analystContainerFrameLayout, new AnalystHomeFragment());
 						break;
 
 					case 1:
+//						transaction.setCustomAnimations(R.anim.fadein,R.anim.sample_anim,R.anim.fadein,R.anim.sample_anim);
 						transaction.replace(R.id.analystContainerFrameLayout, new AnalystAddFragment());
 						break;
 
 					case 2:
+//						transaction.setCustomAnimations(R.anim.fadein,R.anim.sample_anim,R.anim.fadein,R.anim.sample_anim);
 						transaction.replace(R.id.analystContainerFrameLayout, new AnalystEditFragment());
 						break;
 
 					case 3:
+//						transaction.setCustomAnimations(R.anim.fadein,R.anim.sample_anim,R.anim.fadein,R.anim.sample_anim);
 						transaction.replace(R.id.analystContainerFrameLayout, new AnalystProfileFragment());
 						break;
 				}

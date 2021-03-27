@@ -1,4 +1,4 @@
-package com.codewithhamad.headwaybuilders.analyst;
+package com.codewithhamad.headwaybuilders.analyst.analystaddfrag;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,24 +9,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.codewithhamad.headwaybuilders.databasehelper.DatabaseHelper;
 
 import static android.app.Activity.RESULT_OK;
 
-public class AnalystAddFragment extends Fragment {
+public class AddBuildingFragment extends Fragment {
 
     ImageView buildingImage;
     Spinner spinnerBuildingTypes;
@@ -39,16 +37,12 @@ public class AnalystAddFragment extends Fragment {
 
     DatabaseHelper databaseHelper;
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_analyst_add, container, false);
+        View view= inflater.inflate(R.layout.fragment_add_building, container, false);
+
 
         // init views
         buildingImage= view.findViewById(R.id.buildingMannualImage);
@@ -73,8 +67,6 @@ public class AnalystAddFragment extends Fragment {
             }
         });
 
-
-
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,18 +82,32 @@ public class AnalystAddFragment extends Fragment {
 
                     if(buildingId.getText().length()==0){
                         buildingId.setError("Id is required.");
+                        Toast.makeText(getContext(), "Id is required field.", Toast.LENGTH_SHORT).show();
+                        return;
                     }
                     else if(buildingName.getText().length()==0){
                         buildingName.setError("Name is required.");
+                        Toast.makeText(getContext(), "Name is required field.", Toast.LENGTH_SHORT).show();
+                        return;
                     }
                     else if(buildingArea.getText().length()==0){
                         buildingArea.setError("Building Area is required.");
+                        Toast.makeText(getContext(), "Area is required field.", Toast.LENGTH_SHORT).show();
+                        return;
                     }
                     else if(parkingArea.getText().length()==0){
                         parkingArea.setError("Parking Area is required.");
+                        Toast.makeText(getContext(), "Parking area is required field.", Toast.LENGTH_SHORT).show();
+                        return;
                     }
                     else if(buildingLocation.getText().length()==0){
                         buildingLocation.setError("Location is required.");
+                        Toast.makeText(getContext(), "Location is required field.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    else if(bitmapImageToStore == null){
+                        Toast.makeText(getContext(), "Building Image is required.", Toast.LENGTH_SHORT).show();
+                        return;
                     }
 
                     id = Integer.parseInt(buildingId.getText().toString());
@@ -146,14 +152,16 @@ public class AnalystAddFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
+
+    // navigating to images/gallery
     public void chooseImage(View objectView){
 
         try{
 
-            // navigating to images/gallery
             Intent intent= new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -161,7 +169,7 @@ public class AnalystAddFragment extends Fragment {
 
         }
         catch (Exception e){
-            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Error getting picture from gallery", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -186,7 +194,7 @@ public class AnalystAddFragment extends Fragment {
             }
         }
         catch (Exception e){
-            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Error getting picture from gallery", Toast.LENGTH_SHORT).show();
         }
     }
 }

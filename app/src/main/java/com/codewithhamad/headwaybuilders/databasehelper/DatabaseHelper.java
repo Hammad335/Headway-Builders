@@ -7,12 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.codewithhamad.headwaybuilders.analyst.BuildingModel;
+import com.codewithhamad.headwaybuilders.models.BuildingModel;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
