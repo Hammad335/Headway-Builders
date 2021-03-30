@@ -2,101 +2,43 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/analystParentCardView"
-    android:layout_width="280dp"
+    android:layout_width="160dp"
     android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
     android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
-    app:cardBackgroundColor="#DADADA"
     app:cardCornerRadius="8dp"
-    app:cardElevation="10dp">
+    android:backgroundTint="#47FFFFFF"
+    app:cardElevation="15dp">
 
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp">
-
-        <RelativeLayout
-            android:id="@+id/collasedRelLayout"
-            android:layout_width="match_parent"
-            android:layout_height="270dp"
-            android:background="@drawable/building4"
-            android:padding="2dp">
-
+        android:padding="3dp">
 
             <ImageView
                 android:id="@+id/analystBuildingImageView"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/four" />
 
             <TextView
                 android:id="@+id/analystBuildingName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/analystBuildingImageView"
-                android:layout_marginTop="14dp"
-                android:fontFamily="@font/monoton"
-                android:gravity="start"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/audiowide"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="2dp"
                 android:text="BUILDING NAME"
                 android:textAllCaps="true"
                 android:textColor="#A6FFFFFF"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/buildingCardViewDownArrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/analystBuildingImageView"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="42dp"
-                android:src="@drawable/ic_down_arrow" />
-
         </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/expandedRelLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/collasedRelLayout"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/txtShortDec"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Short Desc: "
-                android:fontFamily="@font/monoton"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/buildingShortDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtShortDec"
-                android:text="Building Desc: "
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="2dp"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="italic" />
-
-            <ImageView
-                android:id="@+id/buildingCardViewUpArrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/buildingShortDesc"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_up_arrow" />
-
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
 
 </androidx.cardview.widget.CardView>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 import com.codewithhamad.headwaybuilders.R;
 import com.codewithhamad.headwaybuilders.analyst.analystaddfrag.AnalystAddFragment;
+import com.codewithhamad.headwaybuilders.analyst.analysteditfrag.AnalystEditFragment;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 
 public class AnalystActivity extends AppCompatActivity {

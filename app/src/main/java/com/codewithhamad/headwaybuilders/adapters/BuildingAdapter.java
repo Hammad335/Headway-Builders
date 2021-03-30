@@ -1,4 +1,4 @@
-package com.codewithhamad.headwaybuilders.analyst;
+package com.codewithhamad.headwaybuilders.adapters;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,9 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.TransitionManager;
 
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.analyst.BuildingDetailsFragment;
 import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.google.gson.Gson;
 
@@ -48,7 +48,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         // changing view values on runTime
         holder.buildingImage.setImageBitmap(buildingModel.getBuildingImage());
         holder.buildingName.setText(buildingModel.getBuildingName());
-        holder.buildingShortDesc.setText(buildingModel.getShortDetails());
+//        holder.buildingShortDesc.setText(buildingModel.getShortDetails());
 
         // TODO: 3/24/2021 navigate user to building details fragment
         // adding onClickListener to each building item
@@ -72,23 +72,23 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         });
 
         // expanding cardView on clicking down arrow
-        holder.downArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(holder.parent);
-                holder.expandedRelLayout.setVisibility(View.VISIBLE);
-                holder.downArrow.setVisibility(View.GONE);
-            }
-        });
+//        holder.downArrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                TransitionManager.beginDelayedTransition(holder.parent);
+//                holder.expandedRelLayout.setVisibility(View.VISIBLE);
+//                holder.downArrow.setVisibility(View.GONE);
+//            }
+//        });
 
         // contracting cardView on clicking up arrow
-        holder.upArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.expandedRelLayout.setVisibility(View.GONE);
-                holder.downArrow.setVisibility(View.VISIBLE);
-            }
-        });
+//        holder.upArrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                holder.expandedRelLayout.setVisibility(View.GONE);
+//                holder.downArrow.setVisibility(View.VISIBLE);
+//            }
+//        });
     }
 
     @Override
@@ -111,11 +111,11 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             buildingImage= itemView.findViewById(R.id.analystBuildingImageView);
-            downArrow= itemView.findViewById(R.id.buildingCardViewDownArrow);
-            upArrow= itemView.findViewById(R.id.buildingCardViewUpArrow);
+//            downArrow= itemView.findViewById(R.id.buildingCardViewDownArrow);
+//            upArrow= itemView.findViewById(R.id.buildingCardViewUpArrow);
             buildingName= itemView.findViewById(R.id.analystBuildingName);
-            buildingShortDesc= itemView.findViewById(R.id.buildingShortDesc);
-            expandedRelLayout= itemView.findViewById(R.id.expandedRelLayout);
+//            buildingShortDesc= itemView.findViewById(R.id.buildingShortDesc);
+//            expandedRelLayout= itemView.findViewById(R.id.expandedRelLayout);
             parent= itemView.findViewById(R.id.analystParentCardView);
         }
     }

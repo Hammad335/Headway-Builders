@@ -17,7 +17,7 @@
         <activity android:name=".analyst.AnalystActivity"
             android:windowSoftInputMode="adjustPan"/>
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashActivity" />
 
 
         <meta-data

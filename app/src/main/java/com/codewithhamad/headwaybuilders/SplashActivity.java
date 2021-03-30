@@ -1,18 +1,13 @@
 package com.codewithhamad.headwaybuilders;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
-import com.codewithhamad.headwaybuilders.analyst.AnalystActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.codewithhamad.headwaybuilders.main.MainActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.Handler;
-import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -33,21 +28,21 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // init views
-        logo = (ImageView) findViewById(R.id.imageView2);
+//        logo = (ImageView) findViewById(R.id.splashLogo);
 
         // setting anim to logo
-        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fadein_splash_activity);
-        logo.startAnimation(fadeIn);
+//        fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein_splash_activity);
+//        logo.startAnimation(fadeIn);
 
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-               Intent intent = new Intent(SplashActivity.this, AnalystActivity.class);
-               startActivity(intent);
-               finish();
-            }
-        },SPLASHSCREEN);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//               Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+//               startActivity(intent);
+//               finish();
+//            }
+//        },SPLASHSCREEN);
 
     }
 

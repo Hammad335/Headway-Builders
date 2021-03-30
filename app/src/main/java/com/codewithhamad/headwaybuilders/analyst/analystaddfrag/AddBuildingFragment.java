@@ -30,12 +30,16 @@ public class AddBuildingFragment extends Fragment {
     Spinner spinnerBuildingTypes;
     EditText buildingId, buildingName, buildingArea, numberOfFlats, numberOfFloors, numberOfLifts, parkingArea, shortDetails, buildingLocation;
     Button addBtn;
-
-    private static final int PICK_IMAGE_REQUEST= 1;
+    public static final int PICK_IMAGE_REQUEST= 1;
     private Uri imageFilePath;
     private Bitmap bitmapImageToStore;
-
     DatabaseHelper databaseHelper;
+
+    // temp vars
+    int id;
+    String buildingType, name;
+    int bArea,flats, floors, lifts, pArea;
+    String details, location;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,15 +74,11 @@ public class AddBuildingFragment extends Fragment {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // temp vars used below
-                int id;
-                String name;
-                int bArea,flats, floors, lifts, pArea;
-                String details, location, buildingType;
-
                 try {
+
                     databaseHelper = new DatabaseHelper(getContext());
+
+                    // validating data
 
                     if(buildingId.getText().length()==0){
                         buildingId.setError("Id is required.");
@@ -139,12 +139,10 @@ public class AddBuildingFragment extends Fragment {
 
                     location= buildingLocation.getText().toString();
 
-
-                    BuildingModel record= new BuildingModel(bitmapImageToStore, buildingType, id, name, bArea, flats, floors,
+                    BuildingModel record = new BuildingModel(bitmapImageToStore, buildingType, id, name, bArea, flats, floors,
                             lifts, pArea, details, location);
 
-                    databaseHelper.insertRecord(record);
-
+                    databaseHelper.insertInToBuildingsTable(record);
                 }
                 catch (Exception e){
                     Toast.makeText(getContext(), "Fill the required fields properly.", Toast.LENGTH_SHORT).show();
@@ -155,7 +153,6 @@ public class AddBuildingFragment extends Fragment {
 
         return view;
     }
-
 
     // navigating to images/gallery
     public void chooseImage(View objectView){
@@ -183,7 +180,7 @@ public class AddBuildingFragment extends Fragment {
 
             if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
 
-                // image path in form of uri
+                // converting selected image into uri
                 imageFilePath= data.getData();
 
                 // converting image into bitmap
