@@ -28,21 +28,21 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         // init views
-//        logo = (ImageView) findViewById(R.id.splashLogo);
+        logo = (ImageView) findViewById(R.id.splashLogo);
 
         // setting anim to logo
-//        fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein_splash_activity);
-//        logo.startAnimation(fadeIn);
+        fadeIn = AnimationUtils.loadAnimation(this, R.anim.fadein_splash_activity);
+        logo.startAnimation(fadeIn);
 
 
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//               Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-//               startActivity(intent);
-//               finish();
-//            }
-//        },SPLASHSCREEN);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+               Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+               startActivity(intent);
+               finish();
+            }
+        },SPLASHSCREEN);
 
     }
 

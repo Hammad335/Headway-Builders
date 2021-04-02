@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gg"
+    android:background="@drawable/back3"
     tools:context=".analyst.BuildingDetailsFragment">
 
 
     <LinearLayout
+        android:id="@+id/statusBarLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
         android:gravity="clip_horizontal"
-        android:id="@+id/statusBarLinearLayout"
-        android:layout_marginTop="15dp">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/backBtn"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="20dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/ic_back_arrow" />
 
         <TextView
             android:id="@+id/buildingDetailsTextView"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Buillding Details"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
             android:fontFamily="@font/audiowide"
+            android:gravity="center_vertical"
+            android:text="Buillding Details"
+            android:textColor="@color/black"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -40,24 +41,24 @@
     <ImageView
         android:id="@+id/buildngDetailsImageView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_below="@+id/statusBarLinearLayout"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/two" />
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginStart="6dp"
+        android:visibility="visible"
+        android:scaleType="centerCrop" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="410dp"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/buildngDetailsImageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="7dp">
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/blur">
 
 
         <LinearLayout
@@ -76,20 +77,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Id: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBId"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="010"
-                    android:textColor="#CC7800"
+                    android:textAlignment="viewEnd"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
 
             </LinearLayout>
 
@@ -104,20 +107,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Name: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="Name"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -131,20 +136,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Type: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBType"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="type"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -158,20 +165,23 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Location: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBLocation"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="type"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -185,20 +195,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Area: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBArea"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="00sqft"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -212,20 +224,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="No. of Flats: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBNoOfFlats"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="00"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -239,20 +253,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="No. of Floors: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBNoOfFloors"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="00"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
 
@@ -267,20 +283,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="No. of Lifts: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBNoOfLifts"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="00"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -294,20 +312,22 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Parking Area: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBParkingArea"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="00sqft"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -321,27 +341,28 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/audiowide"
                     android:text="Details: "
-                    android:textColor="#000000"
+                    android:textColor="#0E0E0E"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/buildingDetailsBShortDetails"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="2dp"
+                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
+                    android:shadowColor="#0C0C0C"
                     android:text="details"
-                    android:textColor="#CC7800"
+                    android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal|bold" />
             </LinearLayout>
 
         </LinearLayout>
 
 
     </ScrollView>
-
 
 
 </RelativeLayout>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/workerParentCardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/workerParentCardView"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/blur"
+    android:backgroundTint="#BF673AB7"
     app:cardCornerRadius="8dp"
-    app:cardElevation="15dp"
-    android:backgroundTint="@color/cardview_dark_background">
+    app:cardElevation="15dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -19,9 +20,9 @@
             android:id="@+id/txtId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:fontFamily="@font/audiowide"
             android:gravity="start"
-            android:layout_marginStart="2dp"
             android:text="Id :  "
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
@@ -31,9 +32,9 @@
             android:id="@+id/workerIdTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="start"
-            android:layout_toEndOf="@+id/txtId"
             android:layout_marginStart="30dp"
+            android:layout_toEndOf="@+id/txtId"
+            android:gravity="start"
             android:text="122"
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
@@ -44,11 +45,11 @@
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/workerIdTxt"
+            android:layout_marginStart="2dp"
             android:fontFamily="@font/audiowide"
             android:gravity="start"
-            android:layout_marginStart="2dp"
             android:text="Name :  "
-            android:layout_below="@+id/workerIdTxt"
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -58,8 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtId"
-            android:layout_toEndOf="@+id/txtName"
             android:layout_marginStart="2dp"
+            android:layout_toEndOf="@+id/txtName"
             android:text="Worker Name"
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
@@ -67,9 +68,6 @@
 
 
     </RelativeLayout>
-
-
-
 
 
 </androidx.cardview.widget.CardView>

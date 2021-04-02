@@ -50,9 +50,9 @@ public class AnalystLoginFragment extends Fragment {
         passwordEditTxt.startAnimation(fadeIn);
         userNameImageView.startAnimation(fadeIn);
         passwordImageView.startAnimation(fadeIn);
-        logo.startAnimation(fadeIn);
+//        logo.startAnimation(fadeIn);
         signInBtn.startAnimation(fadeIn);
-        welcomeText.startAnimation(fadeIn);
+//        welcomeText.startAnimation(fadeIn);
 
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -40,11 +40,6 @@ public class EditBuildingFragment extends Fragment {
 
     private Bitmap bitmapImage;
 
-    // temp vars
-    int id;
-    String buildingType, name;
-    int bArea,flats, floors, lifts, pArea;
-    String details, location;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -71,7 +66,7 @@ public class EditBuildingFragment extends Fragment {
         // disabling views at the start except buildingId
         disableViews();
 
-        // setting data to the views retrieved from database based on buildingId
+        // setting data to the views retrieved from buildings table based on buildingId
         buildingId.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -93,6 +88,9 @@ public class EditBuildingFragment extends Fragment {
                             if(buildingModel != null) {
                                 enableViews();
                                 setDataToTheViews(buildingModel);
+                            }
+                            else{
+                                Toast.makeText(getContext(), "buildingModel is null", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
@@ -121,7 +119,7 @@ public class EditBuildingFragment extends Fragment {
         });
 
 
-        //
+        // navigating to gallery/images
         buildingImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,9 +127,16 @@ public class EditBuildingFragment extends Fragment {
             }
         });
 
+
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // temp vars
+                int id;
+                String buildingType, name;
+                int bArea,flats, floors, lifts, pArea;
+                String details, location;
+
                 try {
 
                     // validating data
@@ -208,10 +213,6 @@ public class EditBuildingFragment extends Fragment {
         });
 
         return view;
-    }
-
-    private void validateData() {
-
     }
 
     private void enableViews() {

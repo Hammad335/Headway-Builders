@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".analyst.analysteditfrag.AnalystEditFragment"
-    android:background="@drawable/gg"
-    android:orientation="vertical">
+    android:background="@drawable/back"
+    android:orientation="vertical"
+    tools:context=".analyst.analysteditfrag.AnalystEditFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/editFragTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorFullWidth="true"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
-        app:tabIndicatorGravity="center"
-        app:tabTextColor="#FF9800"
-        app:tabIndicatorHeight="35dp"
-        app:tabIndicatorColor="@android:color/transparent"
         app:tabIndicator="@drawable/tab_indicator"
-        app:tabRippleColor="#84E3F1"/>
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="center"
+        app:tabIndicatorHeight="35dp"
+        app:tabRippleColor="#84E3F1"
+        app:tabTextColor="#FF9800" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/editFragViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

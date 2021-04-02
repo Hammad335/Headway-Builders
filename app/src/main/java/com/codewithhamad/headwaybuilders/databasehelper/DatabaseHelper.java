@@ -124,7 +124,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } else {
                 Toast.makeText(context, "Failed to add the record to database.", Toast.LENGTH_SHORT).show();
             }
-            sqLiteDatabaseWritableObj.close();
 
         } catch (Exception e) {
             Toast.makeText(context, "Failed to add record to database", Toast.LENGTH_SHORT).show();
@@ -134,8 +133,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // get all from buildings table
     public ArrayList<BuildingModel> getAllFromBuildingsTable() {
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
+
         try {
-            SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
             ArrayList<BuildingModel> buildings = new ArrayList<>();
 
             String getAllDataQuery = "SELECT * FROM " + table_1_buildings + " ORDER BY dateTime";
@@ -180,15 +180,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     buildings.add(new BuildingModel(bitmapImage, type, id, name, bArea, flats, floors, lifts, pArea, details, location));
                 }
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return buildings;
             } else {
                 Toast.makeText(context, "No buildings exist in database", Toast.LENGTH_SHORT).show();
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return null;
             }
 
         } catch (Exception e) {
             Toast.makeText(context, "Error fetching data form buildings table", Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
             return null;
         }
     }
@@ -248,21 +251,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
 
-        String getDataByIdQuery = "SELECT * FROM " + table_1_buildings + " WHERE "+COLUMN_BUILDING_ID+" = "  + buildingId;
+        String getDataByIdQuery = "SELECT * FROM " + table_1_buildings + " WHERE " + COLUMN_BUILDING_ID + " = " + buildingId;
 
         Cursor cursor = sqLiteDatabaseReadableObj.rawQuery(getDataByIdQuery, null);
         if (cursor.getCount() <= 0) {
             cursor.close();
+            sqLiteDatabaseReadableObj.close();
             return false;
         }
-        else
+        else {
+            sqLiteDatabaseReadableObj.close();
             return true;
+        }
     }
 
     // get whole row/record by buildingId
     public BuildingModel getByIdFromBuildingTable(int buildingId){
+        SQLiteDatabase sqLiteDatabaseReadableObj= this.getReadableDatabase();
+
         try{
-            SQLiteDatabase sqLiteDatabaseReadableObj= this.getReadableDatabase();
             BuildingModel buildingModel = null;
 
             String getSingleRecordByIdQuery= "SELECT * FROM " + table_1_buildings + " WHERE "+COLUMN_BUILDING_ID+" = "  + buildingId;
@@ -307,24 +314,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     buildingModel= new BuildingModel(bitmapImage, type, id, name, bArea, flats, floors, lifts, pArea, details, location);
                 }
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return buildingModel;
             }
             else{
                 Toast.makeText(context, "No buildings exist in database", Toast.LENGTH_SHORT).show();
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return null;
             }
-
         }
         catch (Exception e){
             Toast.makeText(context, "Error fetching data form buildings table", Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
             return null;
         }
     }
 
     public void insertInToWorkersTable(WorkerModel workerModel) {
+        SQLiteDatabase sqLiteDatabaseWritableObj = this.getWritableDatabase();
+
         try {
-            SQLiteDatabase sqLiteDatabaseWritableObj = this.getWritableDatabase();
 
             // database record values For WorkersTable
             ContentValues contentValues = new ContentValues();
@@ -343,17 +353,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             else {
                 Toast.makeText(context, "Failed to add the record to database.", Toast.LENGTH_SHORT).show();
             }
-            sqLiteDatabaseWritableObj.close();
-
         }
         catch (Exception e) {
             Toast.makeText(context, "Failed to add record to database", Toast.LENGTH_SHORT).show();
         }
+        sqLiteDatabaseWritableObj.close();
     }
 
     public ArrayList<WorkerModel> getAllFromWorkersTable(){
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
+
         try {
-            SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
             ArrayList<WorkerModel> workers = new ArrayList<>();
 
             String getAllDataQuery = "SELECT * FROM " + table_2_workers;
@@ -373,15 +383,102 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     workers.add(new WorkerModel(wId, bId, wName, wJob, wSal));
                 }
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return workers;
             } else {
                 Toast.makeText(context, "No worker exists in database", Toast.LENGTH_SHORT).show();
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return null;
             }
         }
         catch (Exception e){
             Toast.makeText(context, "Error fetching data form workers table", Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
+            return null;
+        }
+    }
+
+    // update record in worker table
+    public void updateRecordInToWorkerTable(WorkerModel workerModel){
+        SQLiteDatabase sqLiteDatabaseWritableObj = this.getWritableDatabase();
+
+        try {
+
+            // database record values
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(COLUMN_WORKER_ID, workerModel.getWorkerId());
+            contentValues.put(COLUMN_WORKER_NAME, workerModel.getWorkerName());
+            contentValues.put(COLUMN_WORKER_JOB, workerModel.getJob());
+            contentValues.put(COLUMN_WORKER_SAL, workerModel.getSalary());
+            contentValues.put(COLUMN_WORKER_BUILDING_ID, workerModel.getBuildingId());
+
+            // update() method returns -1 if exception occurs
+            long check = sqLiteDatabaseWritableObj.update(table_2_workers, contentValues,
+                    COLUMN_WORKER_ID + "=?", new String[]{String.valueOf(workerModel.getWorkerId())});
+
+            if (check != -1)
+                Toast.makeText(context, "Worker updated.", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(context, "Failed to update the record.", Toast.LENGTH_SHORT).show();
+
+        }
+        catch (Exception e) {
+            Toast.makeText(context, "Error updating record.", Toast.LENGTH_SHORT).show();
+        }
+        sqLiteDatabaseWritableObj.close();
+    }
+
+    public boolean doesExistInWorkerTable(int workerId){
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
+
+        String getDataByIdQuery = "SELECT * FROM " + table_2_workers + " WHERE "+COLUMN_WORKER_ID+" = "  + workerId;
+
+        Cursor cursor = sqLiteDatabaseReadableObj.rawQuery(getDataByIdQuery, null);
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            sqLiteDatabaseReadableObj.close();
+            return false;
+        }
+        else
+            sqLiteDatabaseReadableObj.close();
+            return true;
+    }
+
+    // get whole row/record by workerId
+    public WorkerModel getByIdFromWorkerTable(int workerId){
+        try{
+            SQLiteDatabase sqLiteDatabaseReadableObj= this.getReadableDatabase();
+            WorkerModel workerModel = null;
+
+            String getSingleRecordByIdQuery= "SELECT * FROM " + table_2_workers + " WHERE "+COLUMN_WORKER_ID+" = "  + workerId;
+            Cursor cursor= sqLiteDatabaseReadableObj.rawQuery(getSingleRecordByIdQuery, null);
+
+            if(cursor.getCount() != 0){
+                while (cursor.moveToNext()){
+
+                    int wId= cursor.getInt(0);
+                    String name= cursor.getString(1);
+                    String job= cursor.getString(2);
+                    int sal= cursor.getInt(3);
+                    int bId= cursor.getInt(4);
+
+//                   String dateTime= cursor.getString(7);
+
+                     workerModel= new WorkerModel(wId, bId, name, job, sal);
+                }
+                cursor.close();
+                return workerModel;
+            }
+            else{
+                Toast.makeText(context, "Worker does not exist in database", Toast.LENGTH_SHORT).show();
+                cursor.close();
+                return null;
+            }
+
+        }
+        catch (Exception e){
+            Toast.makeText(context, "Error fetching data form worker table", Toast.LENGTH_SHORT).show();
             return null;
         }
     }

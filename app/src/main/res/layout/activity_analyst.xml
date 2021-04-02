@@ -23,7 +23,7 @@
         android:id="@+id/analystBottomNav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@drawable/building1"
+        android:background="@drawable/login4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -67,10 +67,10 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/edittext_border_color"
+                    android:elegantTextHeight="true"
                     android:fontFamily="@font/bungee_inline"
                     android:inputType="number"
-                    android:elegantTextHeight="true"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textColorLink="#FF9800"
                     android:textSize="24sp" />
 
@@ -96,7 +96,7 @@
                     android:elegantTextHeight="true"
                     android:fontFamily="@font/bungee_inline"
                     android:inputType="number"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="22sp" />
 
 
@@ -123,7 +123,7 @@
                     android:ems="10"
                     android:fontFamily="@font/bungee_inline"
                     android:inputType="text"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="22sp" />
 
 
@@ -150,7 +150,7 @@
                     android:ems="10"
                     android:fontFamily="@font/bungee_inline"
                     android:inputType="number"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="22sp" />
 
                 <TextView
@@ -175,85 +175,9 @@
                     android:elegantTextHeight="true"
                     android:fontFamily="@font/bungee_inline"
                     android:inputType="text"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="22sp" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:fontFamily="@font/bungee_inline"-->
-<!--                    android:text="Parking Area (sqft) :"-->
-<!--                    android:textColor="#1B1B1B"-->
-<!--                    android:textSize="15sp"-->
-<!--                    android:textStyle="bold" />-->
-<!--                -->
-<!--                <EditText-->
-<!--                    android:id="@+id/parkingArea"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:background="@drawable/edittext_border_color"-->
-<!--                    android:elegantTextHeight="true"-->
-<!--                    android:ems="10"-->
-<!--                    android:fontFamily="@font/bungee_inline"-->
-<!--                    android:inputType="number"-->
-<!--                    android:textColor="#FFFFFF"-->
-<!--                    android:textSize="22sp" />-->
-<!---->
-<!--                -->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:fontFamily="@font/bungee_inline"-->
-<!--                    android:text="Location :"-->
-<!--                    android:textColor="#1B1B1B"-->
-<!--                    android:textSize="15sp"-->
-<!--                    android:textStyle="bold" />-->
-<!---->
-<!--                <EditText-->
-<!--                    android:id="@+id/location"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:background="@drawable/edittext_border_color"-->
-<!--                    android:elegantTextHeight="true"-->
-<!--                    android:ems="10"-->
-<!--                    android:fontFamily="@font/bungee_inline"-->
-<!--                    android:inputType="text"-->
-<!--                    android:textColor="#FFFFFF"-->
-<!--                    android:textSize="22sp" />-->
-<!---->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginTop="20dp"-->
-<!--                    android:fontFamily="@font/bungee_inline"-->
-<!--                    android:text="Short Details : (Optional)"-->
-<!--                    android:textColor="#1B1B1B"-->
-<!--                    android:textSize="15sp"-->
-<!--                    android:textStyle="bold" />-->
-<!---->
-<!---->
-<!--                <EditText-->
-<!--                    android:id="@+id/shortDetails"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:layout_marginStart="20dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:background="@drawable/edittext_border_color"-->
-<!--                    android:elegantTextHeight="true"-->
-<!--                    android:fontFamily="@font/bungee_inline"-->
-<!--                    android:inputType="textLongMessage"-->
-<!--                    android:maxLines="4"-->
-<!--                    android:textColor="#FFFFFF"-->
-<!--                    android:textSize="22sp" />-->
 
             </LinearLayout>
 

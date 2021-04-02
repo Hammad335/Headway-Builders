@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,35 +9,28 @@
     tools:context=".main.MainActivity">
 
 
-    <FrameLayout
-        android:id="@+id/mainContainerFrameLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/mainBottomNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
-
-
-        <com.iammert.library.readablebottombar.ReadableBottomBar
-            android:id="@+id/mainBottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:rbb_activeItemType="text"
-            app:rbb_backgroundColor="#171717"
-            app:rbb_indicatorColor="#8E4EFF"
-            app:rbb_tabs="@xml/main_tabs"
-            app:rbb_textColor="#FFC107" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mainActivityViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"/>
 
 
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/mainActivityTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        app:tabIndicator="@drawable/tab_indicator"
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="center"
+        app:tabIndicatorHeight="35dp"
+        app:tabRippleColor="#84E3F1"
+        app:tabTextColor="#FF9800"
+        android:layout_alignParentBottom="true"/>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
