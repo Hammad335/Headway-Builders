@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.codewithhamad.headwaybuilders.R;
 import com.codewithhamad.headwaybuilders.analyst.AnalystActivity;
+import com.codewithhamad.headwaybuilders.manager.ManagerActivity;
 
 
 public class ManagerLoginFragment extends Fragment {
@@ -55,7 +56,18 @@ public class ManagerLoginFragment extends Fragment {
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), AnalystActivity.class));
+
+//                if (userNameEditTxt.getText().length() == 0){
+//                    userNameEditTxt.setError("Name is required.");
+//                    return;
+//                }
+//                else if(passwordEditTxt.getText().length()==0) {
+//                    passwordEditTxt.setError("Password is required.");
+//                    return;
+//                }
+
+
+                startActivity(new Intent(getActivity(), ManagerActivity.class));
             }
         });
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codewithhamad.headwaybuilders.R;
 import com.codewithhamad.headwaybuilders.analyst.AnalystActivity;
+import com.codewithhamad.headwaybuilders.databasehelper.DatabaseHelper;
+import com.codewithhamad.headwaybuilders.models.AnalystLoginModel;
 
 
 public class AnalystLoginFragment extends Fragment {
@@ -57,7 +61,30 @@ public class AnalystLoginFragment extends Fragment {
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), AnalystActivity.class));
+                String userName= userNameEditTxt.getText().toString();
+                String pass= passwordEditTxt.getText().toString();
+                if(userName.length()==0){
+                    userNameEditTxt.setError("User name is required.");
+                    return;
+                }
+                else if(pass.length()==0){
+                    passwordEditTxt.setError("Password is required.");
+                    return;
+                }
+
+                try{
+
+                    AnalystLoginModel analystLoginModel= new AnalystLoginModel(userName, pass);
+
+                    if (new DatabaseHelper(getContext()).doesExistInAnalystsTable(analystLoginModel))
+                        startActivity(new Intent(getActivity(), AnalystActivity.class));
+                    else
+                        Toast.makeText(getContext(), "Invalid user name or password.", Toast.LENGTH_SHORT).show();
+
+                }
+                catch(Exception e){
+                    Log.d("log", "onClick: " + e.getMessage());
+                }
             }
         });
 

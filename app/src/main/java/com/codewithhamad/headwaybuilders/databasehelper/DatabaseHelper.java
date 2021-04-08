@@ -7,10 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.codewithhamad.headwaybuilders.models.AnalystLoginModel;
 import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.codewithhamad.headwaybuilders.models.WorkerModel;
 
@@ -44,6 +46,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_WORKER_SAL = "sal";
     private static final String COLUMN_WORKER_BUILDING_ID = "id";
 
+    private String table_3_analyst= "Analysts";
+    private static final String COLUMN_ANALYST_USERNAME = "user_name";
+    private static final String COLUMN_ANALYST_PASS = "pass";
+
 
     // for converting bitmap image into byte array
     private ByteArrayOutputStream imageByteArrayOutputStream;
@@ -62,6 +68,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COLUMN_WORKER_BUILDING_ID + " INTEGER , FOREIGN KEY  (" + COLUMN_WORKER_BUILDING_ID + ") REFERENCES " + table_1_buildings
             + "(" + COLUMN_BUILDING_ID + "))";
 
+    String analystsTableCreateQuery = "CREATE TABLE " + table_3_analyst + " ( " + COLUMN_ANALYST_USERNAME + " VARCHAR PRIMARY KEY, "+
+            COLUMN_ANALYST_PASS + " VARCHAR NOT NULL)";
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         this.context = context;
@@ -72,8 +81,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             db.execSQL(buildingTableCreateQuery);
             db.execSQL(workerTableCreateQuery);
-            Toast.makeText(context, "table created successfully", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
+            db.execSQL(analystsTableCreateQuery);
+            Toast.makeText(context, "tables created successfully", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e) {
             Toast.makeText(context, "Error creating tables", Toast.LENGTH_SHORT).show();
         }
     }
@@ -468,11 +479,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                      workerModel= new WorkerModel(wId, bId, name, job, sal);
                 }
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return workerModel;
             }
             else{
                 Toast.makeText(context, "Worker does not exist in database", Toast.LENGTH_SHORT).show();
                 cursor.close();
+                sqLiteDatabaseReadableObj.close();
                 return null;
             }
 
@@ -483,6 +496,134 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+    // check whether record exists in analysts table or not by analystName
+    public boolean doesExistInAnalystsTable(String analystUserName) {
+
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
+
+        Cursor cursor = sqLiteDatabaseReadableObj.query(table_3_analyst, null, COLUMN_ANALYST_USERNAME+"=?",
+                new String[] { analystUserName }, null, null, null, null);
+
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            sqLiteDatabaseReadableObj.close();
+            return false;
+        }
+        else {
+            sqLiteDatabaseReadableObj.close();
+            return true;
+        }
+    }
+
+    // check whether record exists in analysts table or not
+    public boolean doesExistInAnalystsTable(AnalystLoginModel analystLoginModel) {
+
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
+
+        Cursor cursor = sqLiteDatabaseReadableObj.query(table_3_analyst, null, COLUMN_ANALYST_USERNAME+"=?",
+                new String[] { analystLoginModel.getName() }, null, null, null, null);
+
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            sqLiteDatabaseReadableObj.close();
+            return false;
+        }
+        else {
+            cursor.moveToFirst();
+            if (cursor.getString(1).equals(analystLoginModel.getPassword())) {
+                cursor.close();
+                sqLiteDatabaseReadableObj.close();
+                return true;
+            }
+            else{
+                cursor.close();
+                sqLiteDatabaseReadableObj.close();
+                return false;
+            }
+        }
+
+    }
+
+
+    // insert record into analysts table
+    public void insertInToAnalystsTable(AnalystLoginModel analystLoginModel) {
+        SQLiteDatabase sqLiteDatabaseWritableObj = this.getWritableDatabase();
+
+        try {
+
+            // database record values for buildingsTable
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(COLUMN_ANALYST_USERNAME, analystLoginModel.getName());
+            contentValues.put(COLUMN_ANALYST_PASS, analystLoginModel.getPassword());
+
+            // insert() method returns -1 if exception occurs
+            long check = sqLiteDatabaseWritableObj.insert(table_3_analyst, null, contentValues);
+
+            if (check != -1) {
+                Toast.makeText(context, "Analyst added to database successfully.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "Failed to add analyst to database.", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+        catch (Exception e) {
+            Toast.makeText(context, "Failed to add record to database", Toast.LENGTH_SHORT).show();
+        }
+        sqLiteDatabaseWritableObj.close();
+    }
+
+    // get all from analysts table
+    public ArrayList<AnalystLoginModel> getAllFromAnalystsTable() {
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
+
+        try {
+            ArrayList<AnalystLoginModel> allAnalysts = new ArrayList<>();
+
+            String getAllDataQuery = "SELECT * FROM " + table_3_analyst;
+            Cursor cursor = sqLiteDatabaseReadableObj.rawQuery(getAllDataQuery, null);
+
+            if (cursor.getCount() != 0) {
+                while (cursor.moveToNext()) {
+
+                    String name = cursor.getString(0);
+                    String pass = cursor.getString(1);
+
+                    allAnalysts.add(new AnalystLoginModel(name, pass));
+                }
+                cursor.close();
+                sqLiteDatabaseReadableObj.close();
+                return allAnalysts;
+            } else {
+                Toast.makeText(context, "No analysts exist in database", Toast.LENGTH_SHORT).show();
+                cursor.close();
+                sqLiteDatabaseReadableObj.close();
+                return null;
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(context, "Error fetching data form analysts table", Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
+            return null;
+        }
+    }
+
+    // delete record from analysts table by userName
+    public boolean deleteRecByNameFromAnalystsTable(String analystName){
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getWritableDatabase();
+        try {
+            // delete() method returns the number of affected rows
+            int affectedRows = sqLiteDatabaseReadableObj.delete(table_3_analyst, COLUMN_ANALYST_USERNAME + "=?", new String[]{analystName});
+            return affectedRows > 0;
+        }
+        catch (Exception e){
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
+        }
+        sqLiteDatabaseReadableObj.close();
+        return false;
+
+    }
 
 
 }

@@ -2,11 +2,16 @@ package com.codewithhamad.headwaybuilders.analyst;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+
+import com.codewithhamad.headwaybuilders.HomeFragment;
 import com.codewithhamad.headwaybuilders.R;
 import com.codewithhamad.headwaybuilders.analyst.analystaddfrag.AnalystAddFragment;
 import com.codewithhamad.headwaybuilders.analyst.analysteditfrag.AnalystEditFragment;
+import com.codewithhamad.headwaybuilders.main.MainActivity;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 
 public class AnalystActivity extends AppCompatActivity {
@@ -25,7 +30,7 @@ public class AnalystActivity extends AppCompatActivity {
 
 		// by default: home fragment
 		FragmentTransaction homeTrans= getSupportFragmentManager().beginTransaction();
-		homeTrans.replace(R.id.analystContainerFrameLayout, new AnalystHomeFragment());
+		homeTrans.replace(R.id.analystContainerFrameLayout, new HomeFragment());
 		homeTrans.commit();
 
 		// setting onClickListener to bottomNavBar
@@ -36,7 +41,7 @@ public class AnalystActivity extends AppCompatActivity {
 				switch (i){
 					case 0:
 //						transaction.setCustomAnimations(R.anim.fadein,R.anim.sample_anim,R.anim.fadein,R.anim.sample_anim);
-						transaction.replace(R.id.analystContainerFrameLayout, new AnalystHomeFragment());
+						transaction.replace(R.id.analystContainerFrameLayout, new HomeFragment());
 						break;
 
 					case 1:
@@ -58,4 +63,11 @@ public class AnalystActivity extends AppCompatActivity {
 			}
 		});
 	}
+
+//	@Override
+//	public void onBackPressed() {
+//		Intent intent= new Intent(AnalystActivity.this, MainActivity.class);
+//		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//		startActivity(intent);
+//	}
 }

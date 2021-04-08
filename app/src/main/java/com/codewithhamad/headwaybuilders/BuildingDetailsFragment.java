@@ -1,4 +1,4 @@
-package com.codewithhamad.headwaybuilders.analyst;
+package com.codewithhamad.headwaybuilders;
 
 import android.os.Bundle;
 
@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.codewithhamad.headwaybuilders.R;
 import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,6 +24,7 @@ public class BuildingDetailsFragment extends Fragment {
     ImageView imageView, backBtn;
     TextView buildingId, buildingName, buildingType, buildingLocation, buildingArea, noOfFlats, noOfFloors, noOfLifts, parkingArea, details;
     BuildingModel buildingModel;
+    Bundle bundle;
 
 
     @Override
@@ -48,7 +48,7 @@ public class BuildingDetailsFragment extends Fragment {
         details= view.findViewById(R.id.buildingDetailsBShortDetails);
 
         // receiving data from BuildingAdapter
-        Bundle bundle= this.getArguments();
+        bundle= this.getArguments();
 
         if(bundle!=null) {
             String jsonItem= bundle.getString("building");
@@ -97,10 +97,15 @@ public class BuildingDetailsFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // navigating back to the AnalystHomeFragment
                 AppCompatActivity appCompatActivity= (AppCompatActivity) v.getContext();
-                appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.analystContainerFrameLayout, new AnalystHomeFragment()).commit();
+
+                String callingActivity= bundle.getString("key");
+
+                if(callingActivity.equals("AnalystActivity"))
+                    appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.analystContainerFrameLayout, new HomeFragment()).commit();
+                else if(callingActivity.equals("ManagerActivity"))
+                    appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.managerContainerFrameLayout, new HomeFragment()).commit();
             }
         });
 

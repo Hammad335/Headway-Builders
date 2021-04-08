@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
-    android:background="@drawable/blur"
     android:backgroundTint="#BF673AB7"
     app:cardCornerRadius="8dp"
     app:cardElevation="15dp">
@@ -23,7 +22,7 @@
             android:layout_marginStart="2dp"
             android:fontFamily="@font/audiowide"
             android:gravity="start"
-            android:text="Id :  "
+            android:text="Id       :  "
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -32,9 +31,9 @@
             android:id="@+id/workerIdTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="2dp"
             android:layout_toEndOf="@+id/txtId"
-            android:gravity="start"
+            android:gravity="end"
             android:text="122"
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
@@ -62,6 +61,7 @@
             android:layout_marginStart="2dp"
             android:layout_toEndOf="@+id/txtName"
             android:text="Worker Name"
+            android:gravity="end"
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
             android:textStyle="bold" />

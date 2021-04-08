@@ -16,7 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codewithhamad.headwaybuilders.R;
-import com.codewithhamad.headwaybuilders.analyst.BuildingDetailsFragment;
+import com.codewithhamad.headwaybuilders.BuildingDetailsFragment;
 import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.google.gson.Gson;
 
@@ -26,10 +26,12 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
 
     Context context;
     ArrayList<BuildingModel> buildings;
+    String callingActivity;
 
-    public BuildingAdapter(Context context, ArrayList<BuildingModel> buildings){
+    public BuildingAdapter(Context context, ArrayList<BuildingModel> buildings, String callingActivity){
         this.context= context;
         this.buildings= buildings;
+        this.callingActivity= callingActivity;
     }
 
 
@@ -37,7 +39,7 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.analyst_sample_building, parent, false);
+        View view= LayoutInflater.from(context).inflate(R.layout.sample_building, parent, false);
         return new ViewHolder(view);
     }
 
@@ -62,33 +64,25 @@ public class BuildingAdapter extends RecyclerView.Adapter<BuildingAdapter.ViewHo
                 String jsonItem = gson.toJson(buildings.get(position));
                 Bundle bundle = new Bundle();
                 bundle.putString("building", jsonItem);
+                bundle.putString("key", callingActivity);
 
                 // navigating to BuildingDetailsFragment
+
                 BuildingDetailsFragment buildingDetailsFragment= new BuildingDetailsFragment();
                 buildingDetailsFragment.setArguments(bundle);
                 AppCompatActivity appCompatActivity= (AppCompatActivity) v.getContext();
-                appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.analystContainerFrameLayout, buildingDetailsFragment).commit();
+
+                if(callingActivity.equals("ManagerActivity")){
+                    appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.managerContainerFrameLayout, buildingDetailsFragment).commit();
+                }
+                else if(callingActivity.equals("AnalystActivity")){
+                    appCompatActivity.getSupportFragmentManager().beginTransaction().replace(R.id.analystContainerFrameLayout, buildingDetailsFragment).commit();
+                }
+
             }
         });
 
-        // expanding cardView on clicking down arrow
-//        holder.downArrow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                TransitionManager.beginDelayedTransition(holder.parent);
-//                holder.expandedRelLayout.setVisibility(View.VISIBLE);
-//                holder.downArrow.setVisibility(View.GONE);
-//            }
-//        });
 
-        // contracting cardView on clicking up arrow
-//        holder.upArrow.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                holder.expandedRelLayout.setVisibility(View.GONE);
-//                holder.downArrow.setVisibility(View.VISIBLE);
-//            }
-//        });
     }
 
     @Override
