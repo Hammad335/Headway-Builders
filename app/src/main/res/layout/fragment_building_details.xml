@@ -12,7 +12,7 @@
         android:id="@+id/statusBarLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:gravity="clip_horizontal"
         android:orientation="horizontal">
 
@@ -37,35 +37,38 @@
 
     </LinearLayout>
 
-
-    <ImageView
-        android:id="@+id/buildngDetailsImageView"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/statusBarLinearLayout"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginStart="6dp"
-        android:visibility="visible"
-        android:scaleType="centerCrop" />
+        android:background="#FF9800"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"/>
+
 
     <ScrollView
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buildngDetailsImageView"
+        android:layout_below="@+id/statusBarLinearLayout"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/blur">
-
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="6dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/buildngDetailsImageView"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="8dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -358,6 +361,27 @@
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btnEditBuilding"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="#FFA500"
+                android:text="Edit Building"
+                android:textColor="@color/white"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+
+            <Button
+                android:id="@+id/btnAddWorker"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Add Worker"
+                android:backgroundTint="#FFA500"
+                android:textColor="@color/white"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"/>
 
         </LinearLayout>
 

@@ -39,10 +39,10 @@
                 android:layout_marginTop="14dp"
                 android:layout_toEndOf="@+id/txtAllWorkers"
                 android:text="(Show all)"
-                android:textColor="#FF9800"
+                android:textColor="#FF6D00"
                 android:textSize="12dp"
                 android:textStyle="italic" />
-
+<!--            #FF9800-->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/homeFragWorkersRecView"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/homeFragWorkersRecView"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/sarpanch_semibold"
                 android:text="Buildings"
                 android:textAlignment="center"
@@ -66,14 +66,23 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/buildingsSortByBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_sort"
+                android:layout_below="@+id/homeFragWorkersRecView"
+                android:layout_toEndOf="@+id/txtAllBuildings"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="12dp"/>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/homeFragBuildingsRecView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtAllBuildings"
-                android:layout_marginTop="8dp" />
-
+                android:layout_marginTop="8dp"/>
 
         </RelativeLayout>
 

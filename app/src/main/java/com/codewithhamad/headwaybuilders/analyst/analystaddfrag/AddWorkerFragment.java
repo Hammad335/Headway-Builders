@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,33 @@ public class AddWorkerFragment extends Fragment {
         salary= view.findViewById(R.id.salary);
         job= view.findViewById(R.id.job);
         addBtn= view.findViewById(R.id.addWorkerAddBtn);
+
+
+       Bundle bundle= this.getArguments();
+       if(bundle!=null){
+           if(bundle.getInt("id") != 0 && bundle.getInt("id") != -1){
+               buildingId.setText(bundle.getInt("id") + "");
+
+               try {
+
+                   int building_id;
+                   if (buildingId.getText().length() != 0) {
+
+                       building_id = Integer.parseInt(buildingId.getText().toString());
+
+                       if (new DatabaseHelper(getContext()).doesExistInBuildingTable(building_id)) {
+                           buildingId.setTextColor(getResources().getColor(R.color.green));
+                       } else {
+                           buildingId.setTextColor(getResources().getColor(R.color.red));
+                           buildingId.setError("Building does not exist.");
+                       }
+                   }
+               }
+               catch (Exception e){
+                   Log.d("check", "onCreateView: " + e.getMessage());
+               }
+           }
+       }
 
 
         // checking whether building id is valid or not

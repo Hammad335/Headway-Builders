@@ -17,7 +17,9 @@ import com.codewithhamad.headwaybuilders.models.BuildingModel;
 import com.codewithhamad.headwaybuilders.models.WorkerModel;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -143,13 +145,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // get all from buildings table
-    public ArrayList<BuildingModel> getAllFromBuildingsTable() {
+    public ArrayList<BuildingModel> getAllFromBuildingsTable(String order) {
         SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
 
         try {
             ArrayList<BuildingModel> buildings = new ArrayList<>();
 
-            String getAllDataQuery = "SELECT * FROM " + table_1_buildings + " ORDER BY dateTime";
+            String getAllDataQuery = "SELECT * FROM " + table_1_buildings + " ORDER BY " + order;
             Cursor cursor = sqLiteDatabaseReadableObj.rawQuery(getAllDataQuery, null);
 
             if (cursor.getCount() != 0) {
@@ -183,7 +185,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     String details = cursor.getString(8);
                     String location = cursor.getString(9);
                     byte[] imageInBytes = cursor.getBlob(10);
+
 //                    String dateTime= cursor.getString(7);
+
+//                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//                    Date date= new Date();
+//                    date= dateFormat.parse(dateTime);
+
+
+//                    Log.d("check", "getAllFromBuildingsTable: " + date.toString());
 
                     // converting byteArray image into bitmap
                     Bitmap bitmapImage = BitmapFactory.decodeByteArray(imageInBytes, 0, imageInBytes.length);
@@ -193,7 +203,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.close();
                 sqLiteDatabaseReadableObj.close();
                 return buildings;
-            } else {
+            }
+            else {
                 Toast.makeText(context, "No buildings exist in database", Toast.LENGTH_SHORT).show();
                 cursor.close();
                 sqLiteDatabaseReadableObj.close();
@@ -371,13 +382,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabaseWritableObj.close();
     }
 
-    public ArrayList<WorkerModel> getAllFromWorkersTable(){
+    public ArrayList<WorkerModel> getAllFromWorkersTable(String order){
         SQLiteDatabase sqLiteDatabaseReadableObj = this.getReadableDatabase();
 
         try {
             ArrayList<WorkerModel> workers = new ArrayList<>();
 
-            String getAllDataQuery = "SELECT * FROM " + table_2_workers;
+            String getAllDataQuery = "SELECT * FROM " + table_2_workers + " ORDER BY " + order;
             Cursor cursor = sqLiteDatabaseReadableObj.rawQuery(getAllDataQuery, null);
 
             if (cursor.getCount() != 0) {
@@ -614,6 +625,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             // delete() method returns the number of affected rows
             int affectedRows = sqLiteDatabaseReadableObj.delete(table_3_analyst, COLUMN_ANALYST_USERNAME + "=?", new String[]{analystName});
+            return affectedRows > 0;
+        }
+        catch (Exception e){
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
+        }
+        sqLiteDatabaseReadableObj.close();
+        return false;
+
+    }
+
+    // delete record from buildings table by id
+    public boolean deleteRecByIdFromBuildingsTable(int id){
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getWritableDatabase();
+        try {
+            // delete() method returns the number of affected rows
+            int affectedRows = sqLiteDatabaseReadableObj.delete(table_1_buildings, COLUMN_BUILDING_ID + "=" + id, null);
             return affectedRows > 0;
         }
         catch (Exception e){

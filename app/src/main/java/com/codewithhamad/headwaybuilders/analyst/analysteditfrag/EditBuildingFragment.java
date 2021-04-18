@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,16 @@ public class EditBuildingFragment extends Fragment {
         // disabling views at the start except buildingId
         disableViews();
 
+
+        Bundle bundle= this.getArguments();
+        if(bundle!=null){
+            if(bundle.getInt("id") != 0 && bundle.getInt("id") != -1){
+                buildingId.setText(bundle.getInt("id") + "");
+                validateData();
+            }
+        }
+
+
         // setting data to the views retrieved from buildings table based on buildingId
         buildingId.addTextChangedListener(new TextWatcher() {
             @Override
@@ -75,41 +86,7 @@ public class EditBuildingFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try{
-                    if(buildingId.getText().length() != 0){
-
-                        int bId= Integer.parseInt(buildingId.getText().toString());
-
-                        if(new DatabaseHelper(getContext()).doesExistInBuildingTable(bId)){
-
-                            buildingId.setTextColor(getResources().getColor(R.color.green));
-                            BuildingModel buildingModel= new DatabaseHelper(getContext()).getByIdFromBuildingTable(bId);
-
-                            if(buildingModel != null) {
-                                enableViews();
-                                setDataToTheViews(buildingModel);
-                            }
-                            else{
-                                Toast.makeText(getContext(), "buildingModel is null", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else{
-                            buildingId.setTextColor(getResources().getColor(R.color.red));
-                            buildingId.setError("Building does not exist.");
-
-                            // disable views
-                            disableViews();
-                        }
-
-                    }
-                    else{
-                        // disable views
-                        disableViews();
-                    }
-                }
-                catch(Exception e){
-                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+                validateData();
             }
 
             @Override
@@ -213,6 +190,46 @@ public class EditBuildingFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public void validateData(){
+
+        try{
+            if(buildingId.getText().length() != 0){
+
+                int bId= Integer.parseInt(buildingId.getText().toString());
+
+                if(new DatabaseHelper(getContext()).doesExistInBuildingTable(bId)){
+
+                    buildingId.setTextColor(getResources().getColor(R.color.green));
+                    BuildingModel buildingModel= new DatabaseHelper(getContext()).getByIdFromBuildingTable(bId);
+
+                    if(buildingModel != null) {
+                        enableViews();
+                        setDataToTheViews(buildingModel);
+                    }
+                    else{
+                        Toast.makeText(getContext(), "buildingModel is null", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    buildingId.setTextColor(getResources().getColor(R.color.red));
+                    buildingId.setError("Building does not exist.");
+
+                    // disable views
+                    disableViews();
+                }
+
+            }
+            else{
+                // disable views
+                disableViews();
+            }
+        }
+        catch(Exception e){
+            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void enableViews() {

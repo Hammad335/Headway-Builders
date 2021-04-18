@@ -43,6 +43,17 @@ public class AnalystEditFragment extends Fragment {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        // when editBuildingBtn clicked from buildingDetailsFragment
+        Bundle bundle= this.getArguments();
+        if(bundle!=null){
+
+            int buildingId= bundle.getInt("id");
+            if(buildingId!=0 && buildingId != -1){
+                bundle.putInt("id", buildingId);
+                viewPagerAdapter.setArgument(bundle);
+            }
+        }
+
 
 
         return view;
@@ -79,6 +90,10 @@ public class AnalystEditFragment extends Fragment {
         @Override
         public CharSequence getPageTitle(int position) {
             return titles.get(position);
+        }
+
+        public void setArgument(Bundle bundle) {
+            fragments.get(0).setArguments(bundle);
         }
     }
 

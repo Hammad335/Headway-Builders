@@ -16,7 +16,7 @@ import com.iammert.library.readablebottombar.ReadableBottomBar;
 
 public class AnalystActivity extends AppCompatActivity {
 
-	ReadableBottomBar readableBottomBar;
+	public static ReadableBottomBar readableBottomBar;
 	FrameLayout frameLayout; // container for fragments used in this activity
 
 	@Override

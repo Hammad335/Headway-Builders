@@ -8,10 +8,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.analyst.AnalystActivity;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
@@ -21,6 +23,8 @@ public class AnalystAddFragment extends Fragment {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private ViewPagerAdapter viewPagerAdapter;
+
+    public static int buildingId= -1;
 
 
     @Override
@@ -34,6 +38,8 @@ public class AnalystAddFragment extends Fragment {
         viewPager= view.findViewById(R.id.addFragViewPager);
         tabLayout= view.findViewById(R.id.addFragTabLayout);
 
+
+
         viewPagerAdapter= new ViewPagerAdapter(getChildFragmentManager());
         viewPagerAdapter.addFragment(new AddBuildingFragment(), "Add Building");
         viewPagerAdapter.addFragment(new AddWorkerFragment(), "Add Worker");
@@ -41,7 +47,25 @@ public class AnalystAddFragment extends Fragment {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+
+        // when addWorkerBtn clicked from buildingDetailsFragment
+        Bundle bundle= this.getArguments();
+        if(bundle!=null){
+
+            int buildingId= bundle.getInt("id");
+            if(buildingId!=0 && buildingId != -1){
+                viewPager.setCurrentItem(1);
+
+                bundle.putInt("id", buildingId);
+                viewPagerAdapter.setArgument(bundle);
+            }
+        }
+
         return view;
+    }
+
+    public static int getBuildingId(){
+        return buildingId;
     }
 
     public static class ViewPagerAdapter extends FragmentPagerAdapter{
@@ -64,6 +88,10 @@ public class AnalystAddFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
             return fragments.get(position);
+        }
+
+        public void setArgument(Bundle bundle){
+            fragments.get(1).setArguments(bundle);
         }
 
         @Override
