@@ -653,5 +653,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // delete record from worker table by id
+    public boolean deleteRecByIdFromWorkerTable(int id){
+        SQLiteDatabase sqLiteDatabaseReadableObj = this.getWritableDatabase();
+        try {
+            // delete() method returns the number of affected rows
+            int affectedRows = sqLiteDatabaseReadableObj.delete(table_2_workers, COLUMN_WORKER_ID + "=" + id, null);
+            return affectedRows > 0;
+        }
+        catch (Exception e){
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            sqLiteDatabaseReadableObj.close();
+        }
+        sqLiteDatabaseReadableObj.close();
+        return false;
+    }
+
 
 }

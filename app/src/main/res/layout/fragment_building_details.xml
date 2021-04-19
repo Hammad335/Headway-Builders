@@ -59,6 +59,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#92FFFFFF"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -67,8 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_marginTop="10dp"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,6 +79,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Id: "
                     android:textColor="#0E0E0E"
@@ -108,6 +110,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Name: "
                     android:textColor="#0E0E0E"
@@ -119,10 +122,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="Name"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -137,6 +140,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Type: "
                     android:textColor="#0E0E0E"
@@ -148,10 +152,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="type"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -166,6 +170,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Location: "
                     android:textColor="#0E0E0E"
@@ -177,10 +182,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="type"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -196,6 +201,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Building Area: "
                     android:textColor="#0E0E0E"
@@ -207,10 +213,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="00sqft"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -225,6 +231,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="No. of Flats: "
                     android:textColor="#0E0E0E"
@@ -236,10 +243,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="00"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -254,6 +261,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="No. of Floors: "
                     android:textColor="#0E0E0E"
@@ -265,10 +273,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="00"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -284,6 +292,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="No. of Lifts: "
                     android:textColor="#0E0E0E"
@@ -295,10 +304,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="00"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -313,6 +322,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Parking Area: "
                     android:textColor="#0E0E0E"
@@ -324,10 +334,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="00sqft"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -342,6 +352,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border_color"
                     android:fontFamily="@font/audiowide"
                     android:text="Details: "
                     android:textColor="#0E0E0E"
@@ -353,10 +364,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:textAlignment="viewEnd"
                     android:fontFamily="@font/audiowide"
                     android:shadowColor="#0C0C0C"
                     android:text="details"
+                    android:textAlignment="viewEnd"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="normal|bold" />
@@ -366,22 +377,22 @@
                 android:id="@+id/btnEditBuilding"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
                 android:backgroundTint="#FFA500"
                 android:text="Edit Building"
-                android:textColor="@color/white"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"/>
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btnAddWorker"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Add Worker"
-                android:backgroundTint="#FFA500"
-                android:textColor="@color/white"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"/>
+                android:backgroundTint="#FFA500"
+                android:text="Add Worker"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

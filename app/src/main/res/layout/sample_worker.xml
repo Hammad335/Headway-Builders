@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
-    android:backgroundTint="#BF673AB7"
+    android:backgroundTint="#B3FF1100"
     app:cardCornerRadius="8dp"
     app:cardElevation="15dp">
 
@@ -60,8 +60,8 @@
             android:layout_below="@+id/txtId"
             android:layout_marginStart="2dp"
             android:layout_toEndOf="@+id/txtName"
-            android:text="Worker Name"
             android:gravity="end"
+            android:text="Worker Name"
             android:textColor="#A6FFFFFF"
             android:textSize="15sp"
             android:textStyle="bold" />

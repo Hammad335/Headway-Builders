@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="15dp"
-    android:layout_marginEnd="15dp"
     android:layout_marginTop="8dp"
-    android:backgroundTint="#BF673AB7"
+    android:layout_marginEnd="15dp"
+    android:backgroundTint="#D98BC34A"
     app:cardCornerRadius="8dp"
     app:cardElevation="15dp">
 
@@ -16,9 +16,9 @@
         android:gravity="center">
 
         <LinearLayout
+            android:id="@+id/aNameLayout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/aNameLayout"
             android:orientation="horizontal"
             android:padding="2dp">
 
@@ -28,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/audiowide"
                 android:text="Username : "
-                android:textColor="#A6FFFFFF"
+                android:textAllCaps="true"
+                android:textColor="#A6000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -37,9 +38,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Hammadullah"
                 android:fontFamily="@font/audiowide"
-                android:textColor="#A6FFFFFF"
+                android:text="Hammadullah"
+                android:textAllCaps="true"
+                android:textColor="#A6000000"
                 android:textSize="16sp"
                 android:textStyle="italic" />
 
@@ -59,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/audiowide"
                 android:text="Password : "
-                android:textColor="#A6FFFFFF"
+                android:textAllCaps="true"
+                android:textColor="#A6000000"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -68,9 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Hammadullah"
                 android:fontFamily="@font/audiowide"
-                android:textColor="#A6FFFFFF"
+                android:text="Hammadullah"
+                android:textAllCaps="true"
+                android:textColor="#A6000000"
                 android:textSize="16sp"
                 android:textStyle="italic" />
 
@@ -85,7 +89,7 @@
             android:layout_centerVertical="true"
             android:backgroundTint="@android:color/transparent"
             android:text="Remove"
-            android:textColor="#FF9800" />
+            android:textColor="#FF1100" />
 
     </RelativeLayout>
 

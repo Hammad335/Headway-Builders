@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="6dp"
     android:layout_marginTop="12dp"
-    android:backgroundTint="#BF673AB7"
+    android:backgroundTint="#CC673AB7"
     app:cardCornerRadius="8dp"
     app:cardElevation="15dp">
 
@@ -14,93 +14,36 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="3dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:fontFamily="@font/audiowide"
-            android:gravity="start"
-            android:text="Id   :"
-            android:textColor="#A6FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/audiowide"
+                android:gravity="start"
+                android:text="Id   :"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtWorkerId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="122"
-            android:textAlignment="viewEnd"
-            android:textColor="#A6FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:fontFamily="@font/audiowide"
-            android:gravity="start"
-            android:text="Name   :"
-            android:textColor="#A6FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txtWorkerName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:text="Worker Name"
-            android:textAlignment="viewEnd"
-            android:textColor="#A6FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:fontFamily="@font/audiowide"
-            android:gravity="start"
-            android:text="Salary :"
-            android:textColor="#A6FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/workerSalaryTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:text="202"
-            android:textAlignment="viewEnd"
-            android:textColor="#A6FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txtWorkerId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="122"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -115,8 +58,72 @@
                 android:layout_marginStart="2dp"
                 android:fontFamily="@font/audiowide"
                 android:gravity="start"
-                android:text="Job      :"
-                android:textColor="#A6FFFFFF"
+                android:text="Name   :"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtWorkerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="Worker Name"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/audiowide"
+                android:gravity="start"
+                android:text="Salary :"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/workerSalaryTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="202"
+                android:textAlignment="viewEnd"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/audiowide"
+                android:gravity="start"
+                android:text="Job :"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -127,7 +134,8 @@
                 android:layout_marginStart="2dp"
                 android:text="Electrician"
                 android:textAlignment="viewEnd"
-                android:textColor="#A6FFFFFF"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -145,7 +153,8 @@
                 android:fontFamily="@font/audiowide"
                 android:gravity="start"
                 android:text="Building Id :"
-                android:textColor="#A6FFFFFF"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -156,7 +165,8 @@
                 android:layout_marginStart="2dp"
                 android:text="111"
                 android:textAlignment="viewEnd"
-                android:textColor="#A6FFFFFF"
+                android:textAllCaps="true"
+                android:textColor="#FFC107"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 

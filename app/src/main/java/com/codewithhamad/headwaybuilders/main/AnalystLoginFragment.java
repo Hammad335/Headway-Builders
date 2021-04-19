@@ -76,8 +76,14 @@ public class AnalystLoginFragment extends Fragment {
 
                     AnalystLoginModel analystLoginModel= new AnalystLoginModel(userName, pass);
 
-                    if (new DatabaseHelper(getContext()).doesExistInAnalystsTable(analystLoginModel))
-                        startActivity(new Intent(getActivity(), AnalystActivity.class));
+                    if (new DatabaseHelper(getContext()).doesExistInAnalystsTable(analystLoginModel)){
+
+                        Intent intent= new Intent(getActivity(), AnalystActivity.class);
+                        intent.putExtra("userName", analystLoginModel.getName());
+                        intent.putExtra("pass", analystLoginModel.getPassword());
+                        startActivity(intent);
+//                        startActivity(new Intent(getActivity(), AnalystActivity.class));
+                    }
                     else
                         Toast.makeText(getContext(), "Invalid user name or password.", Toast.LENGTH_SHORT).show();
 

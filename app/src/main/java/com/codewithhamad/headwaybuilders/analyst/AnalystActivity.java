@@ -11,6 +11,7 @@ import com.codewithhamad.headwaybuilders.HomeFragment;
 import com.codewithhamad.headwaybuilders.R;
 import com.codewithhamad.headwaybuilders.analyst.analystaddfrag.AnalystAddFragment;
 import com.codewithhamad.headwaybuilders.analyst.analysteditfrag.AnalystEditFragment;
+import com.codewithhamad.headwaybuilders.main.AnalystLoginFragment;
 import com.codewithhamad.headwaybuilders.main.MainActivity;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
 
@@ -56,7 +57,16 @@ public class AnalystActivity extends AppCompatActivity {
 
 					case 3:
 //						transaction.setCustomAnimations(R.anim.fadein,R.anim.sample_anim,R.anim.fadein,R.anim.sample_anim);
-						transaction.replace(R.id.analystContainerFrameLayout, new AnalystProfileFragment());
+						AnalystProfileFragment analystProfileFragment= new AnalystProfileFragment();
+						Bundle bundle= new Bundle();
+
+						String userName= getIntent().getStringExtra("userName");
+						String pass= getIntent().getStringExtra("pass");
+
+						bundle.putString("userName", userName);
+						bundle.putString("pass", pass);
+						analystProfileFragment.setArguments(bundle);
+						transaction.replace(R.id.analystContainerFrameLayout, analystProfileFragment);
 						break;
 				}
 				transaction.commit();

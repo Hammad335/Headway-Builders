@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    android:gravity="center_horizontal"
     android:backgroundTint="@android:color/transparent"
     tools:context=".main.AnalystLoginFragment">
 
 
     <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:layout_marginTop="4dp"
+        app:srcCompat="@drawable/sample2" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/audiowide"
+        android:text="WELCOME TO HEADWAY-BUILDERS"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="17sp"/>
+
+
+    <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="116dp"
-        android:layout_marginTop="168dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/manager" />
 
     <TextView
@@ -27,107 +46,95 @@
             android:background="?android:attr/textColorHighlightInverse"
             android:fontFamily="@font/audiowide"
             android:text="ANALYST"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="357dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sample2" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="370dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/audiowide"
-        android:text="WELCOME TO HEADWAY-BUILDERS"
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
 
-    <EditText
-        android:id="@+id/PASSWORD"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="216dp"
-        android:background="@drawable/edittext_wborder_color"
-        android:elegantTextHeight="true"
-        android:ems="10"
-        android:fontFamily="@font/audiowide"
-        android:hint="PASSWORD"
-        android:inputType="textPassword"
-        android:textColor="#FFFFFF"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/USERNAME"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/edittext_wborder_color"
-        android:elegantTextHeight="true"
-        android:ems="10"
-        android:fontFamily="@font/audiowide"
-        android:hint="USERNAME"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/PASSWORD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/edittext_wborder_color">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="45dp"
+            android:layout_height="28dp"
+            app:srcCompat="@drawable/username" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/green"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="@color/white">
+
+            <EditText
+                android:id="@+id/USERNAME"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:fontFamily="@font/audiowide"
+                android:inputType="textPersonName"
+                android:textColor="#FFFF"
+                android:textColorHint="@color/white"
+                android:background="@android:color/transparent"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittext_wborder_color">
+
+        <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="42dp"
-            android:layout_height="37dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/PASSWORD"
-            app:layout_constraintTop_toTopOf="@+id/PASSWORD"
+            android:layout_width="45dp"
+            android:layout_height="32dp"
             app:srcCompat="@drawable/password" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:hintTextColor="@color/green"
+            android:textColorHint="@color/white"
+            app:boxStrokeColor="@color/white">
+
+            <EditText
+                android:id="@+id/PASSWORD"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textColorHint="@color/white"
+                android:fontFamily="@font/audiowide"
+                android:textColor="#FFFF"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
 
     <Button
         android:id="@+id/signin"
         android:layout_width="200dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="136dp"
         android:backgroundTint="?android:attr/textColorHighlightInverse"
         android:fontFamily="@font/audiowide"
         android:text="SIGN IN"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="140dp"/>
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="45dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="8dp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/USERNAME"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/USERNAME"
-        app:srcCompat="@drawable/username" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

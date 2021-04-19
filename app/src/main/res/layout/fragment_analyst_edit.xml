@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:backgroundTint="@android:color/transparent"
-        app:tabIndicator="@drawable/tab_indicator"
+        app:tabIndicator="@drawable/analyst_tab_indicator"
         app:tabIndicatorColor="@android:color/transparent"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="center"

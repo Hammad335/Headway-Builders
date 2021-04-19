@@ -1,14 +1,19 @@
 package com.codewithhamad.headwaybuilders.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.codewithhamad.headwaybuilders.R;
+import com.codewithhamad.headwaybuilders.databasehelper.DatabaseHelper;
 import com.codewithhamad.headwaybuilders.models.WorkerModel;
 import java.util.ArrayList;
 
@@ -44,6 +49,44 @@ public class AllWorkersAdapter extends RecyclerView.Adapter<AllWorkersAdapter.Vi
             holder.job.setText(workerModel.getJob());
             holder.buildingId.setText(workerModel.getBuildingId() + "");
         }
+
+        holder.parent.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                AlertDialog deleteDialog = new AlertDialog.Builder(context)
+                        .setTitle("Delete Message")
+                        .setMessage("Are you sure you want to remove this worker from database ?")
+                        .setIcon(R.drawable.ic_delete)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                try {
+                                    if (new DatabaseHelper(context).deleteRecByIdFromWorkerTable(workerModel.getWorkerId())) {
+                                        Toast.makeText(context, "Worker deleted from database successfully.", Toast.LENGTH_SHORT).show();
+                                        workers.remove(workerModel);
+                                        notifyDataSetChanged();
+                                    }
+                                    else {
+                                        Toast.makeText(context, "Unable to delete record from worker table", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                catch (Exception e) {
+                                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).create();
+                deleteDialog.show();
+
+                return true;
+            }
+        });
 
     }
 
